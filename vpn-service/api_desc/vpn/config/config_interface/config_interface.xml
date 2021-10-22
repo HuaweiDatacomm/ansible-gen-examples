@@ -1,0 +1,114 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global>
+                        <user-detect-interval></user-detect-interval>
+                        <user-autosave-flag></user-autosave-flag>
+                        <user-store-interval></user-store-interval>
+                        <distribute-flag></distribute-flag>
+                        <opt82-inner-vlan-insert-flag></opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <ifm xmlns="urn:huawei:yang:huawei-ifm">
+                <interfaces>
+                    <interface>
+                        <name></name>
+                        <class></class>
+                        <type></type>
+                        <parent-name></parent-name>
+                        <number></number>
+                        <description></description>
+                        <admin-status></admin-status>
+                        <link-protocol></link-protocol>
+                        <router-type></router-type>
+                        <statistic-enable></statistic-enable>
+                        <vrf-name></vrf-name>
+                        <ipv4 xmlns="urn:huawei:yang:huawei-ip">
+                            <addresses>
+                                <address>
+                                    <ip></ip>
+                                    <mask></mask>
+                                    <type></type>
+                                </address>
+                            </addresses>
+                        </ipv4>
+                        <ipv6 xmlns="urn:huawei:yang:huawei-ip">
+                            <spread-mtu-flag></spread-mtu-flag>
+                            <auto-link-local></auto-link-local>
+                            <addresses>
+                                <address>
+                                    <ip></ip>
+                                    <prefix-length></prefix-length>
+                                    <type></type>
+                                </address>
+                            </addresses>
+                            <nd-collection xmlns="urn:huawei:yang:huawei-ipv6-nd">
+                                <if-property>
+                                    <retrans-timer></retrans-timer>
+                                    <nud-reach-time></nud-reach-time>
+                                    <attempts-value></attempts-value>
+                                    <max-dyn-nb-num></max-dyn-nb-num>
+                                    <nud-attempts></nud-attempts>
+                                    <na-glean></na-glean>
+                                    <ma-flag></ma-flag>
+                                    <o-flag></o-flag>
+                                    <ra-halt-flag></ra-halt-flag>
+                                    <max-interval></max-interval>
+                                    <ra-preference></ra-preference>
+                                    <ra-prefix-flag></ra-prefix-flag>
+                                    <ra-mtu-flag></ra-mtu-flag>
+                                    <strict-flag></strict-flag>
+                                    <ts-fuzz-factor></ts-fuzz-factor>
+                                    <ts-clock-drift></ts-clock-drift>
+                                    <ts-delta></ts-delta>
+                                    <rsa-min-key-len></rsa-min-key-len>
+                                    <rsa-max-key-len></rsa-max-key-len>
+                                    <nud-interval></nud-interval>
+                                </if-property>
+                                <proxys>
+                                    <route-proxy></route-proxy>
+                                    <inner-vlan-proxy></inner-vlan-proxy>
+                                    <inter-vlan-proxy></inter-vlan-proxy>
+                                    <anyway-proxy></anyway-proxy>
+                                </proxys>
+                                <ra-property>
+                                    <ra-control>
+                                        <unicast-send></unicast-send>
+                                    </ra-control>
+                                </ra-property>
+                            </nd-collection>
+                        </ipv6>
+                        <ethernet xmlns="urn:huawei:yang:huawei-ethernet">
+                            <l3-sub-interface>
+                                <vlan-type-dot1q>
+                                    <vlan-type-vid></vlan-type-vid>
+                                </vlan-type-dot1q>
+                            </l3-sub-interface>
+                        </ethernet>
+                        <multicast-bas xmlns="urn:huawei:yang:huawei-multicast-bas">
+                            <authorization-enable></authorization-enable>
+                        </multicast-bas>
+                    </interface>
+                </interfaces>
+            </ifm>
+            <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+                <instances>
+                    <instance>
+                        <name></name>
+                        <traffic-statistic-enable xmlns="urn:huawei:yang:huawei-l3vpn"></traffic-statistic-enable>
+                        <description/>
+                    </instance>
+                </instances>
+            </network-instance>
+        </config>
+    </edit-config>
+</rpc>

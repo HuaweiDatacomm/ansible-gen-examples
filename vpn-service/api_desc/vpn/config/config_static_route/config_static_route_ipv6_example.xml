@@ -1,0 +1,88 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global nc:operation="merge">
+                        <user-detect-interval>20</user-detect-interval>
+                        <user-autosave-flag>false</user-autosave-flag>
+                        <user-store-interval>300</user-store-interval>
+                        <distribute-flag>false</distribute-flag>
+                        <opt82-inner-vlan-insert-flag>false</opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+                <instances>
+                    <instance>
+                        <name>vrf_ncc_oc_nat</name>
+                        <afs xmlns="urn:huawei:yang:huawei-l3vpn">
+                            <af>
+                                <type>ipv4-unicast</type>
+                                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                                    <ttlmode>pipe</ttlmode>
+                                </vpn-ttlmode>
+                            </af>
+                            <af>
+                                <type>ipv6-unicast</type>
+                                <routing xmlns="urn:huawei:yang:huawei-routing">
+                                    <static-routing>
+                                        <unicast-route2s>
+                                            <unicast-route2 nc:operation="create">
+                                                <topology-name>base</topology-name>
+                                                <prefix>AA:51::</prefix>
+                                                <mask-length>64</mask-length>
+                                                <nexthop-addresses>
+                                                    <nexthop-address nc:operation="create">
+                                                        <address>2A01:C000:83:B000:10:20:51:1</address>
+                                                        <preference>60</preference>
+                                                        <tag>181</tag>
+                                                    </nexthop-address>
+                                                </nexthop-addresses>
+                                            </unicast-route2>
+                                        </unicast-route2s>
+                                    </static-routing>
+                                </routing>
+                                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                                    <ttlmode>pipe</ttlmode>
+                                </vpn-ttlmode>
+                            </af>
+                        </afs>
+                    </instance>
+                </instances>
+            </network-instance>
+            <routing xmlns="urn:huawei:yang:huawei-routing">
+                <static-routing>
+                    <ipv4-site nc:operation="merge">
+                        <preference>60</preference>
+                        <relay-switch>false</relay-switch>
+                        <min-tx-interval>50</min-tx-interval>
+                        <min-rx-interval>50</min-rx-interval>
+                        <multiplier>3</multiplier>
+                        <relay-remote>true</relay-remote>
+                        <relay-arp-vlink>false</relay-arp-vlink>
+                        <inherit-cost-switch>false</inherit-cost-switch>
+                        <relay-srv6-nexthop>false</relay-srv6-nexthop>
+                    </ipv4-site>
+                    <ipv4-relay-tunnel nc:operation="merge">
+                        <enable>false</enable>
+                    </ipv4-relay-tunnel>
+                    <ipv6-site nc:operation="merge">
+                        <preference>60</preference>
+                        <min-tx-interval>50</min-tx-interval>
+                        <min-rx-interval>50</min-rx-interval>
+                        <multiplier>3</multiplier>
+                        <relay-arp-vlink6>false</relay-arp-vlink6>
+                        <relay-srv6-nexthop6>false</relay-srv6-nexthop6>
+                    </ipv6-site>
+                </static-routing>
+            </routing>
+        </config>
+    </edit-config>
+</rpc>

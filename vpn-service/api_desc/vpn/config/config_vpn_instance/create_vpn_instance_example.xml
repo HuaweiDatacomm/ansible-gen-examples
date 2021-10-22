@@ -1,0 +1,90 @@
+<edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <default-operation>none</default-operation>
+    <test-option>set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+        <relay>
+          <global nc:operation="merge">
+            <user-detect-interval>20</user-detect-interval>
+            <user-autosave-flag>false</user-autosave-flag>
+            <user-store-interval>300</user-store-interval>
+            <distribute-flag>false</distribute-flag>
+            <opt82-inner-vlan-insert-flag>false</opt82-inner-vlan-insert-flag>
+          </global>
+        </relay>
+      </dhcp>
+      <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+        <instances>
+          <instance nc:operation="create">
+            <name>vrf_ncc_oc_nat</name>
+            <afs xmlns="urn:huawei:yang:huawei-l3vpn">
+              <af nc:operation="create">
+                <type>ipv4-unicast</type>
+                <route-distinguisher>3215:4091</route-distinguisher>
+                <label-mode>per-route</label-mode>
+                <vpn-targets>
+                  <vpn-target nc:operation="create">
+                    <value>3215:4091</value>
+                    <type>export-extcommunity</type>
+                  </vpn-target>
+                  <vpn-target nc:operation="create">
+                    <value>3215:4091</value>
+                    <type>import-extcommunity</type>
+                  </vpn-target>
+                </vpn-targets>
+                <routing xmlns="urn:huawei:yang:huawei-routing">
+                  <routing-manage>
+                    <option nc:operation="create">
+                      <frr-enable>false</frr-enable>
+                    </option>
+                    <topologys>
+                      <topology nc:operation="create">
+                        <name>base</name>
+                      </topology>
+                    </topologys>
+                  </routing-manage>
+                </routing>
+                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                  <ttlmode>pipe</ttlmode>
+                </vpn-ttlmode>
+              </af>
+              <af nc:operation="create">
+                <type>ipv6-unicast</type>
+                <route-distinguisher>3215:4091</route-distinguisher>
+                <label-mode>per-route</label-mode>
+                <vpn-targets>
+                  <vpn-target nc:operation="create">
+                    <value>3215:4091</value>
+                    <type>export-extcommunity</type>
+                  </vpn-target>
+                  <vpn-target nc:operation="create">
+                    <value>3215:4091</value>
+                    <type>import-extcommunity</type>
+                  </vpn-target>
+                </vpn-targets>
+                <routing xmlns="urn:huawei:yang:huawei-routing">
+                  <routing-manage>
+                    <option nc:operation="create">
+                      <frr-enable>false</frr-enable>
+                    </option>
+                    <topologys>
+                      <topology nc:operation="create">
+                        <name>base</name>
+                      </topology>
+                    </topologys>
+                  </routing-manage>
+                </routing>
+                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                  <ttlmode>pipe</ttlmode>
+                </vpn-ttlmode>
+              </af>
+            </afs>
+          </instance>
+        </instances>
+      </network-instance>
+    </config>
+  </edit-config>

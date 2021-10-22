@@ -1,0 +1,183 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global nc:operation="merge">
+                        <user-detect-interval>20</user-detect-interval>
+                        <user-autosave-flag>false</user-autosave-flag>
+                        <user-store-interval>300</user-store-interval>
+                        <distribute-flag>false</distribute-flag>
+                        <opt82-inner-vlan-insert-flag>false</opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+                <instances>
+                    <instance>
+                        <name>_public_</name>
+                        <bgp xmlns="urn:huawei:yang:huawei-bgp">
+                            <base-process>
+                                <peers>
+                                    <peer>
+                                        <address>5.5.5.5</address>
+                                        <afs>
+                                            <af nc:operation="create">
+                                                <type>ipv6vpn</type>
+                                                <ipv6-vpn nc:operation="create">
+                                                    <route-update-interval>15</route-update-interval>
+                                                    <public-as-only nc:operation="create">
+                                                        <enable>false</enable>
+                                                    </public-as-only>
+                                                    <public-as-only-import nc:operation="create">
+                                                        <enable>default</enable>
+                                                    </public-as-only-import>
+                                                </ipv6-vpn>
+                                            </af>
+                                        </afs>
+                                    </peer>
+                                </peers>
+                            </base-process>
+                        </bgp>
+                    </instance>
+                    <instance>
+                        <name>vrf_ncc_oc_nat</name>
+                        <afs xmlns="urn:huawei:yang:huawei-l3vpn">
+                            <af>
+                                <type>ipv6-unicast</type>
+                                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                                    <ttlmode>pipe</ttlmode>
+                                </vpn-ttlmode>
+                            </af>
+                        </afs>
+                        <bgp xmlns="urn:huawei:yang:huawei-bgp">
+                            <base-process>
+                                <afs>
+                                    <af nc:operation="create">
+                                        <type>ipv6uni</type>
+                                        <ipv6-unicast>
+                                            <common nc:operation="create">
+                                                <router-id-auto-select>false</router-id-auto-select>
+                                                <auto-frr>false</auto-frr>
+                                                <maximum-load-balancing-ibgp>1</maximum-load-balancing-ibgp>
+                                                <maximum-load-balancing-ebgp>1</maximum-load-balancing-ebgp>
+                                                <nexthop-resolve-aigp>false</nexthop-resolve-aigp>
+                                                <supernet-unicast-advertise>false</supernet-unicast-advertise>
+                                                <bestroute-as-path-ignore>false</bestroute-as-path-ignore>
+                                                <determin-med>false</determin-med>
+                                                <attribute-set-enable>false</attribute-set-enable>
+                                                <load-balanc-igp-metric-ignore>false</load-balanc-igp-metric-ignore>
+                                                <load-balanc-as-path-ignore>false</load-balanc-as-path-ignore>
+                                                <load-balanc-as-path-relax>false</load-balanc-as-path-relax>
+                                                <maximum-load-balancing>1</maximum-load-balancing>
+                                                <best-route-bit-error-detection>false</best-route-bit-error-detection>
+                                                <import-rib-nexthop-invariable>false</import-rib-nexthop-invariable>
+                                                <route-relay-tunnel-v4>false</route-relay-tunnel-v4>
+                                                <bestroute-med-plus-igp>false</bestroute-med-plus-igp>
+                                                <bestroute-igp-metric-ignore>false</bestroute-igp-metric-ignore>
+                                                <bestroute-router-id-prior-clusterlist>false
+                                                </bestroute-router-id-prior-clusterlist>
+                                                <bestroute-med-none-as-maximum>false</bestroute-med-none-as-maximum>
+                                                <load-balancing-eibgp-enable>false</load-balancing-eibgp-enable>
+                                                <prefix-origin-as-validation>false</prefix-origin-as-validation>
+                                                <advertise-route-mode>all</advertise-route-mode>
+                                                <route-select-delay>0</route-select-delay>
+                                                <reflect-change-path>false</reflect-change-path>
+                                                <always-compare-med>false</always-compare-med>
+                                                <default-med>0</default-med>
+                                                <nexthop-third-party>false</nexthop-third-party>
+                                                <default-local-preference>100</default-local-preference>
+                                                <default-route-import>false</default-route-import>
+                                                <routerid-neglect>false</routerid-neglect>
+                                                <reflect-between-client>true</reflect-between-client>
+                                                <ext-community-change>false</ext-community-change>
+                                                <active-route-advertise>false</active-route-advertise>
+                                                <ebgp-interface-sensitive>true</ebgp-interface-sensitive>
+                                            </common>
+                                            <preference nc:operation="create">
+                                                <external>255</external>
+                                                <internal>255</internal>
+                                                <local>255</local>
+                                            </preference>
+                                            <nexthop-recursive-lookup>
+                                                <common nc:operation="create">
+                                                    <restrain>true</restrain>
+                                                    <default-route>false</default-route>
+                                                </common>
+                                            </nexthop-recursive-lookup>
+                                            <import-routes>
+                                                <import-route nc:operation="create">
+                                                    <protocol>direct</protocol>
+                                                    <process-id>0</process-id>
+                                                </import-route>
+                                                <import-route nc:operation="create">
+                                                    <protocol>static</protocol>
+                                                    <process-id>0</process-id>
+                                                    <policy-name>GEN-POL-OUT-VPN-STATIC-TO-MPBGP</policy-name>
+                                                </import-route>
+                                            </import-routes>
+                                            <slow-peer nc:operation="create">
+                                                <detection>true</detection>
+                                                <detection-threshold>300</detection-threshold>
+                                                <absolute-detection>true</absolute-detection>
+                                                <absolute-detection-threshold>9</absolute-detection-threshold>
+                                            </slow-peer>
+                                            <routing-table-rib-only nc:operation="create">
+                                                <enable>false</enable>
+                                            </routing-table-rib-only>
+                                            <qos nc:operation="create">
+                                                <ipv6-qppb>false</ipv6-qppb>
+                                            </qos>
+                                        </ipv6-unicast>
+                                    </af>
+                                </afs>
+                                <peers>
+                                    <peer nc:operation="create">
+                                        <address>30::1</address>
+                                        <remote-as>65001</remote-as>
+                                        <ebgp-max-hop>1</ebgp-max-hop>
+                                        <timer nc:operation="create">
+                                            <keep-alive-time>60</keep-alive-time>
+                                            <hold-time>180</hold-time>
+                                            <min-hold-time>0</min-hold-time>
+                                            <connect-retry-time>32</connect-retry-time>
+                                        </timer>
+                                        <graceful-restart nc:operation="create">
+                                            <enable>default</enable>
+                                            <peer-reset>default</peer-reset>
+                                        </graceful-restart>
+                                        <local-graceful-restart nc:operation="create">
+                                            <enable>default</enable>
+                                        </local-graceful-restart>
+                                        <afs>
+                                            <af nc:operation="create">
+                                                <type>ipv6uni</type>
+                                                <ipv6-unicast nc:operation="create">
+                                                    <import-policy>GEN-POL-OUT-VPN-LOCAL-TO-EBGP</import-policy>
+                                                    <export-policy>GEN-POL-OUT-VPN-LOCAL-TO-EBGP</export-policy>
+                                                    <route-update-interval>30</route-update-interval>
+                                                    <public-as-only nc:operation="create">
+                                                        <enable>false</enable>
+                                                    </public-as-only>
+                                                    <public-as-only-import nc:operation="create">
+                                                        <enable>default</enable>
+                                                    </public-as-only-import>
+                                                </ipv6-unicast>
+                                            </af>
+                                        </afs>
+                                    </peer>
+                                </peers>
+                            </base-process>
+                        </bgp>
+                    </instance>
+                </instances>
+            </network-instance>
+        </config>
+    </edit-config>
+</rpc>

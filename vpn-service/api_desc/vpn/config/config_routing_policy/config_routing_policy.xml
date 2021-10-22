@@ -1,0 +1,39 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global>
+                        <user-detect-interval></user-detect-interval>
+                        <user-autosave-flag></user-autosave-flag>
+                        <user-store-interval></user-store-interval>
+                        <distribute-flag></distribute-flag>
+                        <opt82-inner-vlan-insert-flag></opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <routing-policy xmlns="urn:huawei:yang:huawei-routing-policy">
+                <policy-definitions>
+                    <policy-definition>
+                        <name></name>
+                        <nodes>
+                            <node>
+                                <sequence></sequence>
+                                <match-mode></match-mode>
+                                <next-node-choice >
+                                    <is-goto-next-node></is-goto-next-node>
+                                </next-node-choice>
+                            </node>
+                        </nodes>
+                    </policy-definition>
+                </policy-definitions>
+            </routing-policy>
+        </config>
+    </edit-config>
+</rpc>

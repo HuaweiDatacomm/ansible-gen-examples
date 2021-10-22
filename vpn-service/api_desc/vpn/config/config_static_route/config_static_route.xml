@@ -1,0 +1,82 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global>
+                        <user-detect-interval></user-detect-interval>
+                        <user-autosave-flag></user-autosave-flag>
+                        <user-store-interval></user-store-interval>
+                        <distribute-flag></distribute-flag>
+                        <opt82-inner-vlan-insert-flag></opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+                <instances>
+                    <instance>
+                        <name></name>
+                        <afs xmlns="urn:huawei:yang:huawei-l3vpn">
+                            <af>
+                                <type></type>
+                                <routing xmlns="urn:huawei:yang:huawei-routing">
+                                    <static-routing>
+                                        <unicast-route2s>
+                                            <unicast-route2>
+                                                <topology-name></topology-name>
+                                                <prefix></prefix>
+                                                <mask-length></mask-length>
+                                                <nexthop-addresses>
+                                                    <nexthop-address >
+                                                        <address></address>
+                                                        <preference></preference>
+                                                        <tag></tag>
+                                                    </nexthop-address>
+                                                </nexthop-addresses>
+                                            </unicast-route2>
+                                        </unicast-route2s>
+                                    </static-routing>
+                                </routing>
+                                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" >
+                                    <ttlmode></ttlmode>
+                                </vpn-ttlmode>
+                            </af>
+                        </afs>
+                    </instance>
+                </instances>
+            </network-instance>
+            <routing xmlns="urn:huawei:yang:huawei-routing">
+                <static-routing>
+                    <ipv4-site >
+                        <preference></preference>
+                        <relay-switch></relay-switch>
+                        <min-tx-interval></min-tx-interval>
+                        <min-rx-interval></min-rx-interval>
+                        <multiplier></multiplier>
+                        <relay-remote></relay-remote>
+                        <relay-arp-vlink></relay-arp-vlink>
+                        <inherit-cost-switch></inherit-cost-switch>
+                        <relay-srv6-nexthop></relay-srv6-nexthop>
+                    </ipv4-site>
+                    <ipv4-relay-tunnel>
+                        <enable></enable>
+                    </ipv4-relay-tunnel>
+                    <ipv6-site >
+                        <preference></preference>
+                        <min-tx-interval></min-tx-interval>
+                        <min-rx-interval></min-rx-interval>
+                        <multiplier></multiplier>
+                        <relay-arp-vlink6></relay-arp-vlink6>
+                        <relay-srv6-nexthop6></relay-srv6-nexthop6>
+                    </ipv6-site>
+                </static-routing>
+            </routing>
+        </config>
+    </edit-config>
+</rpc>

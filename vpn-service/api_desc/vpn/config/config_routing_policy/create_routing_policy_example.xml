@@ -1,0 +1,68 @@
+<edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <default-operation>none</default-operation>
+    <test-option>set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+        <relay>
+          <global nc:operation="merge">
+            <user-detect-interval>20</user-detect-interval>
+            <user-autosave-flag>false</user-autosave-flag>
+            <user-store-interval>300</user-store-interval>
+            <distribute-flag>false</distribute-flag>
+            <opt82-inner-vlan-insert-flag>false</opt82-inner-vlan-insert-flag>
+          </global>
+        </relay>
+      </dhcp>
+      <routing-policy xmlns="urn:huawei:yang:huawei-routing-policy">
+        <policy-definitions>
+          <policy-definition nc:operation="create">
+            <name>GEN-POL-OUT-VPN-LOCAL-TO-EBGP</name>
+            <nodes>
+              <node nc:operation="create">
+                <sequence>9</sequence>
+                <match-mode>permit</match-mode>
+                <next-node-choice nc:operation="create">
+                  <is-goto-next-node>false</is-goto-next-node>
+                </next-node-choice>
+              </node>
+            </nodes>
+          </policy-definition>
+          <policy-definition nc:operation="create">
+            <name>VPN-STATIC-TO-MPBGP-TEST</name>
+            <nodes>
+              <node nc:operation="create">
+                <sequence>7</sequence>
+                <match-mode>permit</match-mode>
+                <next-node-choice nc:operation="create">
+                  <is-goto-next-node>false</is-goto-next-node>
+                </next-node-choice>
+              </node>
+              <node nc:operation="create">
+                <sequence>8</sequence>
+                <match-mode>permit</match-mode>
+                <next-node-choice nc:operation="create">
+                  <is-goto-next-node>false</is-goto-next-node>
+                </next-node-choice>
+              </node>
+            </nodes>
+          </policy-definition>
+          <policy-definition nc:operation="create">
+            <name>GEN-POL-OUT-VPN-STATIC-TO-MPBGP</name>
+            <nodes>
+              <node nc:operation="create">
+                <sequence>6</sequence>
+                <match-mode>permit</match-mode>
+                <next-node-choice nc:operation="create">
+                  <is-goto-next-node>false</is-goto-next-node>
+                </next-node-choice>
+              </node>
+            </nodes>
+          </policy-definition>
+        </policy-definitions>
+      </routing-policy>
+    </config>
+  </edit-config>

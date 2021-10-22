@@ -1,0 +1,56 @@
+<edit-config>
+    <target>
+      <candidate/>
+    </target>
+    <default-operation>none</default-operation>
+    <test-option>set</test-option>
+    <error-option>rollback-on-error</error-option>
+    <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+      <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+        <relay>
+          <global>
+            <user-detect-interval></user-detect-interval>
+            <user-autosave-flag></user-autosave-flag>
+            <user-store-interval></user-store-interval>
+            <distribute-flag></distribute-flag>
+            <opt82-inner-vlan-insert-flag></opt82-inner-vlan-insert-flag>
+          </global>
+        </relay>
+      </dhcp>
+      <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+        <instances>
+          <instance>
+            <name></name>
+            <afs xmlns="urn:huawei:yang:huawei-l3vpn">
+              <af>
+                <type></type>
+                <route-distinguisher></route-distinguisher>
+                <label-mode></label-mode>
+                <vpn-targets>
+                  <vpn-target >
+                    <value></value>
+                    <type></type>
+                  </vpn-target>
+                </vpn-targets>
+                <routing xmlns="urn:huawei:yang:huawei-routing">
+                  <routing-manage>
+                    <option >
+                      <frr-enable></frr-enable>
+                    </option>
+                    <topologys>
+                      <topology >
+                        <name></name>
+                      </topology>
+                    </topologys>
+                  </routing-manage>
+                </routing>
+                <vpn-ttlmode xmlns="urn:huawei:yang:huawei-mpls-forward" nc:operation="merge">
+                  <ttlmode></ttlmode>
+                </vpn-ttlmode>
+              </af>
+            </afs>
+          </instance>
+        </instances>
+      </network-instance>
+    </config>
+  </edit-config>

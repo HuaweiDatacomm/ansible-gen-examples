@@ -1,0 +1,114 @@
+<rpc xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101">
+    <edit-config>
+        <target>
+            <candidate/>
+        </target>
+        <default-operation>none</default-operation>
+        <test-option>set</test-option>
+        <error-option>rollback-on-error</error-option>
+        <config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <dhcp xmlns="urn:huawei:yang:huawei-dhcp">
+                <relay>
+                    <global nc:operation="merge">
+                        <user-detect-interval>20</user-detect-interval>
+                        <user-autosave-flag>false</user-autosave-flag>
+                        <user-store-interval>300</user-store-interval>
+                        <distribute-flag>false</distribute-flag>
+                        <opt82-inner-vlan-insert-flag>false</opt82-inner-vlan-insert-flag>
+                    </global>
+                </relay>
+            </dhcp>
+            <ifm xmlns="urn:huawei:yang:huawei-ifm">
+                <interfaces>
+                    <interface nc:operation="create">
+                        <name>GigabitEthernet0/3/8.4091</name>
+                        <class>sub-interface</class>
+                        <type>GigabitEthernet</type>
+                        <parent-name>GigabitEthernet0/3/8</parent-name>
+                        <number>4091</number>
+                        <description>OC Customer Access</description>
+                        <admin-status>up</admin-status>
+                        <link-protocol>ethernet</link-protocol>
+                        <router-type>broadcast</router-type>
+                        <statistic-enable>false</statistic-enable>
+                        <vrf-name>vrf_ncc_oc_nat</vrf-name>
+                        <ipv4 xmlns="urn:huawei:yang:huawei-ip">
+                            <addresses>
+                                <address nc:operation="create">
+                                    <ip>192.168.51.1</ip>
+                                    <mask>255.255.255.252</mask>
+                                    <type>main</type>
+                                </address>
+                            </addresses>
+                        </ipv4>
+                        <ipv6 xmlns="urn:huawei:yang:huawei-ip" nc:operation="create">
+                            <spread-mtu-flag>false</spread-mtu-flag>
+                            <auto-link-local>false</auto-link-local>
+                            <addresses>
+                                <address nc:operation="create">
+                                    <ip>2A01:C000:83:B000:10:20:51:0</ip>
+                                    <prefix-length>127</prefix-length>
+                                    <type>global</type>
+                                </address>
+                            </addresses>
+                            <nd-collection xmlns="urn:huawei:yang:huawei-ipv6-nd">
+                                <if-property nc:operation="create">
+                                    <retrans-timer>1000</retrans-timer>
+                                    <nud-reach-time>1200000</nud-reach-time>
+                                    <attempts-value>1</attempts-value>
+                                    <max-dyn-nb-num>0</max-dyn-nb-num>
+                                    <nud-attempts>3</nud-attempts>
+                                    <na-glean>off</na-glean>
+                                    <ma-flag>off</ma-flag>
+                                    <o-flag>off</o-flag>
+                                    <ra-halt-flag>on</ra-halt-flag>
+                                    <max-interval>600</max-interval>
+                                    <ra-preference>medium</ra-preference>
+                                    <ra-prefix-flag>on</ra-prefix-flag>
+                                    <ra-mtu-flag>on</ra-mtu-flag>
+                                    <strict-flag>false</strict-flag>
+                                    <ts-fuzz-factor>1</ts-fuzz-factor>
+                                    <ts-clock-drift>1</ts-clock-drift>
+                                    <ts-delta>300</ts-delta>
+                                    <rsa-min-key-len>512</rsa-min-key-len>
+                                    <rsa-max-key-len>2048</rsa-max-key-len>
+                                    <nud-interval>5000</nud-interval>
+                                </if-property>
+                                <proxys nc:operation="create">
+                                    <route-proxy>off</route-proxy>
+                                    <inner-vlan-proxy>off</inner-vlan-proxy>
+                                    <inter-vlan-proxy>off</inter-vlan-proxy>
+                                    <anyway-proxy>off</anyway-proxy>
+                                </proxys>
+                                <ra-property>
+                                    <ra-control nc:operation="create">
+                                        <unicast-send>off</unicast-send>
+                                    </ra-control>
+                                </ra-property>
+                            </nd-collection>
+                        </ipv6>
+                        <ethernet xmlns="urn:huawei:yang:huawei-ethernet">
+                            <l3-sub-interface>
+                                <vlan-type-dot1q nc:operation="create">
+                                    <vlan-type-vid>4091</vlan-type-vid>
+                                </vlan-type-dot1q>
+                            </l3-sub-interface>
+                        </ethernet>
+                        <multicast-bas xmlns="urn:huawei:yang:huawei-multicast-bas" nc:operation="create">
+                            <authorization-enable>false</authorization-enable>
+                        </multicast-bas>
+                    </interface>
+                </interfaces>
+            </ifm>
+            <network-instance xmlns="urn:huawei:yang:huawei-network-instance">
+                <instances>
+                    <instance nc:operation="merge">
+                        <name>vrf_ncc_oc_nat</name>
+                        <traffic-statistic-enable xmlns="urn:huawei:yang:huawei-l3vpn">false</traffic-statistic-enable>
+                        <description nc:operation="remove"/>
+                    </instance>
+                </instances>
+            </network-instance>
+        </config>
+    </edit-config>
+</rpc>
