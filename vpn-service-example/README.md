@@ -2,10 +2,9 @@
 
 ## **Background**
 
-This example is designed to show how to configure a vpn service on Huawei NE8000 router via Ansible.
+This example is designed to show how to configure a L3VPN service on Huawei NE8000 router via [Ansible](https://github.com/ansible/ansible).
 Huawei NE8000 router hasn't provided Ansible APIs, so we will design our customized Ansible APIs 
-and use ansible-gen tool to generated them and deploy them to ansible framework automatically.
-
+and use [ansible-gen](https://github.com/HuaweiDatacomm/ansible-gen) tool to generated them and deploy them to ansible framework automatically.
 The topology is shown below:
 
 ![](pictures/toplogy.png)
