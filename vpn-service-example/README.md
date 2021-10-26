@@ -58,7 +58,7 @@ We will create a vpn service between PE1 and PE2. In this example, we only show 
 
   And we have documented them in [here](https://github.com/HuaweiDatacomm/ansible-gen-examples/tree/main/vpn-service-example/apis).
 
-### wrtie playbook and run it at ansible
+### write playbook and run it at ansible
 
   
 
