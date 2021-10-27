@@ -22,84 +22,6 @@
                 <instances>
                     <instance>
                         <name></name>
-                        <bgp xmlns="urn:huawei:yang:huawei-bgp">
-                            <base-process>
-                                <afs>
-                                    <af>
-                                        <type></type>
-                                        <ipv4-vpn>
-                                            <policy-vpntarget></policy-vpntarget>
-                                            <reflect-change-path></reflect-change-path>
-                                            <auto-frr></auto-frr>
-                                            <route-select-delay></route-select-delay>
-                                            <apply-label-mode></apply-label-mode>
-                                            <nexthop-select-depend-type></nexthop-select-depend-type>
-                                            <default-med></default-med>
-                                            <best-external></best-external>
-                                            <label-free-delay></label-free-delay>
-                                            <default-local-preference></default-local-preference>
-                                            <bestroute-med-plus-igp></bestroute-med-plus-igp>
-                                            <bestroute-igp-metric-ignore></bestroute-igp-metric-ignore>
-                                            <bestroute-router-id-prior-clusterlist>
-                                            </bestroute-router-id-prior-clusterlist>
-                                            <reflect-between-client></reflect-between-client>
-                                            <activate-route-tag></activate-route-tag>
-                                            <load-balancing-eibgp-enable></load-balancing-eibgp-enable>
-                                            <load-balanc-igp-metric-ignore></load-balanc-igp-metric-ignore>
-                                            <load-balanc-as-path-ignore></load-balanc-as-path-ignore>
-                                            <load-balanc-as-path-relax></load-balanc-as-path-relax>
-                                            <reflector-cluster-ipv4 />
-                                            <reflector-cluster-id/>
-                                            <tunnel-selector-name/>
-                                            <add-path-select-num/>
-                                            <route-reflector-ext-community-filter/>
-                                            <nexthop-recursive-lookup>
-                                                <common>
-                                                    <restrain></restrain>
-                                                    <default-route></default-route>
-                                                    <route-policy/>
-                                                    <filter-name/>
-                                                </common>
-                                                <bit-error-detection>
-                                                    <enable></enable>
-                                                    <route-policy/>
-                                                    <filter-name />
-                                                    <filter-parameter/>
-                                                </bit-error-detection>
-                                            </nexthop-recursive-lookup>
-                                            <slow-peer>
-                                                <detection></detection>
-                                                <detection-threshold></detection-threshold>
-                                                <absolute-detection></absolute-detection>
-                                                <absolute-detection-threshold></absolute-detection-threshold>
-                                            </slow-peer>
-                                        </ipv4-vpn>
-                                    </af>
-                                </afs>
-                                <peers>
-                                    <peer>
-                                        <address></address>
-                                        <afs>
-                                            <af>
-                                                <type></type>
-                                                <ipv4-vpn>
-                                                    <route-update-interval></route-update-interval>
-                                                    <public-as-only>
-                                                        <enable></enable>
-                                                    </public-as-only>
-                                                    <public-as-only-import>
-                                                        <enable></enable>
-                                                    </public-as-only-import>
-                                                </ipv4-vpn>
-                                            </af>
-                                        </afs>
-                                    </peer>
-                                </peers>
-                            </base-process>
-                        </bgp>
-                    </instance>
-                    <instance>
-                        <name></name>
                         <afs xmlns="urn:huawei:yang:huawei-l3vpn">
                             <af>
                                 <type></type>
@@ -168,10 +90,6 @@
                                                 </common>
                                             </nexthop-recursive-lookup>
                                             <import-routes>
-                                                <import-route >
-                                                    <protocol></protocol>
-                                                    <process-id></process-id>
-                                                </import-route>
                                                 <import-route >
                                                     <protocol></protocol>
                                                     <process-id></process-id>

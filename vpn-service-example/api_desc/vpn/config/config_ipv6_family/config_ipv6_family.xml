@@ -22,32 +22,6 @@
                 <instances>
                     <instance>
                         <name></name>
-                        <bgp xmlns="urn:huawei:yang:huawei-bgp">
-                            <base-process>
-                                <peers>
-                                    <peer>
-                                        <address></address>
-                                        <afs>
-                                            <af>
-                                                <type></type>
-                                                <ipv6-vpn >
-                                                    <route-update-interval></route-update-interval>
-                                                    <public-as-only >
-                                                        <enable></enable>
-                                                    </public-as-only>
-                                                    <public-as-only-import >
-                                                        <enable></enable>
-                                                    </public-as-only-import>
-                                                </ipv6-vpn>
-                                            </af>
-                                        </afs>
-                                    </peer>
-                                </peers>
-                            </base-process>
-                        </bgp>
-                    </instance>
-                    <instance>
-                        <name></name>
                         <afs xmlns="urn:huawei:yang:huawei-l3vpn">
                             <af>
                                 <type></type>
@@ -112,10 +86,6 @@
                                                 </common>
                                             </nexthop-recursive-lookup>
                                             <import-routes>
-                                                <import-route >
-                                                    <protocol></protocol>
-                                                    <process-id></process-id>
-                                                </import-route>
                                                 <import-route >
                                                     <protocol></protocol>
                                                     <process-id></process-id>
