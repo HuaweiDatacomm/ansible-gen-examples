@@ -128,7 +128,7 @@ description:
       Routing policies are used to filter routes and control the receiving and advertising of routes. By changing the route attributes, such as reachability, 
       you can change the path through which the traffic passes.
 author:ansible_team@huawei
-time:2021-10-27 14:48:06
+time:2021-10-28 09:58:12
 options:
     opreation_type:config
         description:config

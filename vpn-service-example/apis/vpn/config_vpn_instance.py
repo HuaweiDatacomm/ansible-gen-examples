@@ -49,33 +49,33 @@ EXAMPLE = """
     config_vpn_instance:
       operation_type: config
       operation_specs: 
-        - path: /relay/global
+        - path: /config/dhcp/relay/global
           operation: merge
-        - path: ork-instance/instances/instance
+        - path: /config/network-instance/instances/instance
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]
+        - path: /config/network-instance/instances/instance/afs/af[1]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]/vpn-targets/vpn-target[1]
+        - path: /config/network-instance/instances/instance/afs/af[1]/vpn-targets/vpn-target[1]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]/vpn-targets/vpn-target[2]
+        - path: /config/network-instance/instances/instance/afs/af[1]/vpn-targets/vpn-target[2]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]/routing/routing-manage/option
+        - path: /config/network-instance/instances/instance/afs/af[1]/routing/routing-manage/option
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]/routing/routing-manage/topologys/topology
+        - path: /config/network-instance/instances/instance/afs/af[1]/routing/routing-manage/topologys/topology
           operation: create
-        - path: ork-instance/instances/instance/afs/af[1]/vpn-ttlmode
+        - path: /config/network-instance/instances/instance/afs/af[1]/vpn-ttlmode
           operation: merge
-        - path: ork-instance/instances/instance/afs/af[2]
+        - path: /config/network-instance/instances/instance/afs/af[2]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[2]/vpn-targets/vpn-target[1]
+        - path: /config/network-instance/instances/instance/afs/af[2]/vpn-targets/vpn-target[1]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[2]/vpn-targets/vpn-target[2]
+        - path: /config/network-instance/instances/instance/afs/af[2]/vpn-targets/vpn-target[2]
           operation: create
-        - path: ork-instance/instances/instance/afs/af[2]/routing/routing-manage/option
+        - path: /config/network-instance/instances/instance/afs/af[2]/routing/routing-manage/option
           operation: create
-        - path: ork-instance/instances/instance/afs/af[2]/routing/routing-manage/topologys/topology
+        - path: /config/network-instance/instances/instance/afs/af[2]/routing/routing-manage/topologys/topology
           operation: create
-        - path: ork-instance/instances/instance/afs/af[2]/vpn-ttlmode
+        - path: /config/network-instance/instances/instance/afs/af[2]/vpn-ttlmode
           operation: merge
       dhcp: 
         relay: 
@@ -146,7 +146,7 @@ description:
       Layer 3 Virtual Private Network (L3VPN). An L3VPN is a virtual private network set up over public networks by Internet Service Providers (ISPs) and 
       Network Service Providers (NSPs).
 author:ansible_team@huawei
-time:2021-10-27 14:48:06
+time:2021-10-28 09:58:12
 options:
     opreation_type:config
         description:config

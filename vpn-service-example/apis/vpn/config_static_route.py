@@ -215,7 +215,7 @@ description:
       This YANG module defines essential components for the management
       of a routing subsystem.
 author:ansible_team@huawei
-time:2021-10-27 14:48:06
+time:2021-10-28 09:58:12
 options:
     opreation_type:config
         description:config
