@@ -49,29 +49,29 @@ EXAMPLE = """
     config_routing_policy:
       operation_type: config
       operation_specs: 
-        - path: /relay/global
+        - path: /config/dhcp/relay/global
           operation: merge
-        - path: ing-policy/policy-definitions/policy-definition[1]
+        - path: /config/routing-policy/policy-definitions/policy-definition[1]
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[1]/nodes/node
+        - path: /config/routing-policy/policy-definitions/policy-definition[1]/nodes/node
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[1]/nodes/node/next-node-choice
+        - path: /config/routing-policy/policy-definitions/policy-definition[1]/nodes/node/next-node-choice
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[2]
+        - path: /config/routing-policy/policy-definitions/policy-definition[2]
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[2]/nodes/node[1]
+        - path: /config/routing-policy/policy-definitions/policy-definition[2]/nodes/node[1]
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[2]/nodes/node[1]/next-node-choice
+        - path: /config/routing-policy/policy-definitions/policy-definition[2]/nodes/node[1]/next-node-choice
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[2]/nodes/node[2]
+        - path: /config/routing-policy/policy-definitions/policy-definition[2]/nodes/node[2]
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[2]/nodes/node[2]/next-node-choice
+        - path: /config/routing-policy/policy-definitions/policy-definition[2]/nodes/node[2]/next-node-choice
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[3]
+        - path: /config/routing-policy/policy-definitions/policy-definition[3]
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[3]/nodes/node
+        - path: /config/routing-policy/policy-definitions/policy-definition[3]/nodes/node
           operation: create
-        - path: ing-policy/policy-definitions/policy-definition[3]/nodes/node/next-node-choice
+        - path: /config/routing-policy/policy-definitions/policy-definition[3]/nodes/node/next-node-choice
           operation: create
       dhcp: 
         relay: 
@@ -128,7 +128,7 @@ description:
       Routing policies are used to filter routes and control the receiving and advertising of routes. By changing the route attributes, such as reachability, 
       you can change the path through which the traffic passes.
 author:ansible_team@huawei
-time:2021-10-28 09:58:12
+time:2021-10-28 21:04:30
 options:
     opreation_type:config
         description:config
