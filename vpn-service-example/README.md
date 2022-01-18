@@ -13,9 +13,9 @@ We will create a L3VPN service between PE1 and PE2. In this example, we only sho
 
 ## Procedure
 
-### install ansible 2.8.5
+### install ansible 
 
-​        `pip install ansible==2.8.5`
+​        `pip install ansible`
 
 ### install ne-ansible-plugin
 
