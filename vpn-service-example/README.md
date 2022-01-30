@@ -53,7 +53,7 @@ We will create a L3VPN service between PE1 and PE2. In this example, we only sho
 
   ansible-gen will generate your customized Ansible APIs according to YANG modules and your API description files, and copy them to ansible framework.
 
-  you can find them in ${ANSIBLE_PATH}/modules/network/ne directory.
+  you can find them in ${ANSIBLE_COLLECTION_PATH}/modules/network/ne directory.
 
   And we have documented them in [here](https://github.com/HuaweiDatacomm/ansible-gen-examples/tree/main/vpn-service-example/apis).
 
